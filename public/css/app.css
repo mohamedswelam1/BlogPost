@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+.navbar-laravel{
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
+}
+
+.fm-inline{
+  display: inline;  
+}
+.badage-lg{
+    font-size: 1.rem ;
+}
+.avatar{
+    width: 128px;
+    height: 128px;
+}
