@@ -6,6 +6,10 @@ use App\Http\ViewComposers\ActivityComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Blade;
 use App\Http\Resources\comment as CommentResorce ;
+use App\Models\BlogPost;
+use App\Models\Comment;
+use App\Observers\BlogPostObserver;
+use App\Observers\CommentObserver;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceResponse;
 use Illuminate\Support\Facades\Schema;
@@ -42,6 +46,8 @@ class AppServiceProvider extends ServiceProvider
         // view::composer(['post.index','post.show'],\App\Http\ViewComposers\ActivityComposer::class);
         // CommentResorce::withoutWrapping();
         JsonResource::withoutWrapping();
+        BlogPost::observe(BlogPostObserver::class);
+        Comment::observe(CommentObserver::class);
     
   
     }

@@ -104,7 +104,7 @@ class PostController extends Controller
         //    dump( $file->store('thumbnails'));
         //    dump(Storage::disk('public')->put('thumbnails',$file));
         // to specify the file name  we use storeAs method
-        // $name1=$file->storeAs('thumbnails', $blogPost->id . '.' . $file->guessExtension());
+        // $name1=$file->storeAs('thumbnails', $bl  ogPost->id . '.' . $file->guessExtension());
         // dump(Storage::putFileAs('thumbnails',$file ,$blogPost->id . '.' . $file->guessExtension()));
         //  $name2=Storage::disk('local')->putFileAs('thumbnails',$file ,$blogPost->id . '.' . $file->guessExtension());
         //  dump(Storage::url($name1));
@@ -244,7 +244,6 @@ class PostController extends Controller
     public function destroy(Request $request , $id)
     {
          $post = BlogPost::findOrFail($id);
-        // $post->delete();
         Gate::authorize('delete', $post);
 
         BlogPost::destroy($id);

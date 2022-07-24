@@ -41,8 +41,8 @@ class PostCommentController extends Controller
       // $when= now()->addMinute(1);
       // DD($post->user->email);
       // Mail::to($post->user->email)->send(new CommentPostedMarkdown($comment));
-      // $request->session()->flash('status','Comment was created');
       // Mail::to($post->user->email)->queue(new CommentPostedMarkdown($comment));
+      // $request->session()->flash('status','Comment was created');
       TrottledMail::dispatch(new CommentPostedMarkdown($comment), $post->user);
      
       NotifyUsersPostWasCommented::dispatch($comment);

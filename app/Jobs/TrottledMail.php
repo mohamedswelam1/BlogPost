@@ -40,7 +40,7 @@ class TrottledMail implements ShouldQueue
     {
       Redis::throttle('mailtrap')->allow(2)->every(12)->then(function () {
       Mail::to($this->user)->send($this->mail);
-        }, function () {
+        }, function () {                                                                                                                                                                        
             // Unable to obtain lock...
             return $this->release(10);
         });
